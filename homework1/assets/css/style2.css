@@ -72,5 +72,22 @@ a{
     color: #777777;
     text-decoration: none;
 }
-
+/* image sizes */
+img{
+    width: 33%;
+    margin: 10px;
+}
+/* the link to the game */
+.gamelink1{
+    width: 33%;
+    margin: 10px;
+    position: relative; bottom: 70px;
+    font-size: 24px;
+    background-color: #666666;
+    
+}
+/* change the color of the game link */
+#gamelink{
+    color: #ffffff;
+    padding: 10px;
 }
