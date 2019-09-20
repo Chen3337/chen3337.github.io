@@ -7,7 +7,7 @@
 /* the full body part */
 #bodypart{
     width: 100%;
-    background-color: #dddddd;
+    background-image: url("../image/backgroundimg.png");
     height: 600px;
     padding: 30px;
     
