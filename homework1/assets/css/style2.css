@@ -77,16 +77,17 @@ img{
     width: 33%;
     margin: 10px;
 }
-/* the link to the game */
+/* the link to the game div */
 .gamelink1{
     width: 33%;
     margin: 10px;
     position: relative; bottom: 70px;
     font-size: 24px;
     background-color: #666666;
+    padding: 10px;
     
 }
-/* change the color of the game link */
+/* change the color of the game link words */
 #gamelink{
     color: #ffffff;
     padding: 10px;
