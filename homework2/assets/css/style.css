@@ -1,0 +1,72 @@
+/* change to everything */
+*{
+    box-sizing: border-box;
+    font-family: 'Arial', 'Helvetica Neue', Helvetica, sans-serif;
+    color: #777777;
+}
+/* change to the navbar */
+nav{
+    background-color: #ffffff;
+    height: 60px;
+}
+/* the links to other html page div */
+.links{
+    float: right;
+    text-align: center;
+    height: 60px;
+    
+    padding: 20px;
+}
+/* the name div */
+#nametag{
+    padding-top: 20px;
+    text-align: center;
+    height: 60px;
+    width: 40%;
+    background-color: #4aaaa5;
+    margin-left: 20px;
+}
+/* change the name font size */
+h1{
+    font-size: 25px;
+}
+/* the background div */
+#allbodyarea{
+    width: 100%;
+    background-image: url("../image/backgroundimg.png");
+    height: 650px;
+    padding: 20px;
+}
+/* this the information container div */
+#infoarea{
+    background-color: #ffffff;
+    width: 700px;
+    float: left;
+    padding: 20px;
+    margin: 10px;
+}
+/* this is the title in the content */
+#contenttitle{
+    border-bottom: solid 2px #4aaaa5;
+    margin: auto;
+}
+/* this is the image making it fit in the div*/
+img{
+    width: 100%;
+}
+
+footer{
+    border-top: 8px solid #4aaaa5;
+    background-color: #777777;
+    height: 50px;
+    text-align: center;
+    color: #ffffff;
+    padding: 15px;
+
+}
+/* 640 768 980 changes */
+/* @media screen and (max-width: 768px) {
+    img{
+        width: 500px;
+    }
+} */
