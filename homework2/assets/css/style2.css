@@ -1,0 +1,109 @@
+/* change to everything */
+*{
+    box-sizing: border-box;
+    font-family: 'Arial', 'Helvetica Neue', Helvetica, sans-serif;
+    color: #777777;
+}
+/* change to the navbar */
+nav{
+    display: inline-block;
+    background-color: #ffffff;
+    width: 100%;
+    height: 60px;
+    
+}
+/* the links to other html page div */
+.links{
+    float: right;
+    text-align: center;
+    height: 60px;
+    
+    padding: 20px;
+    position: relative; bottom: 60px;
+}
+/* the name div */
+#nametag{
+    padding-top: 20px;
+    text-align: center;
+    height: 60px;
+    width: 40%;
+    background-color: #4aaaa5;
+    margin-left: 20px;
+}
+/* change the name font size */
+h1{
+    font-size: 25px;
+}
+/* the background div */
+#allbodyarea{
+    width: 100%;
+    background-image: url("../image/backgroundimg.png");
+    height: 1000px;
+    padding: 20px;
+}
+/* this the information class container div */
+#infoarea{
+    background-color: #ffffff;
+    width: 700px;
+    float: left;
+    padding: 30px;
+    margin: 10px;
+}
+/* this is the title in the content */
+#contenttitle{
+    border-bottom: solid 2px #4aaaa5;
+    margin: auto;
+}
+
+/* footer */
+footer{
+    border-top: 8px solid #4aaaa5;
+    background-color: #777777;
+    height: 50px;
+    text-align: center;
+    color: #ffffff;
+    padding: 15px;
+    position: fixed; bottom: 0;
+    width: 100%;
+
+}
+/* this change the links */
+a{
+    color: #777777;
+    text-decoration: none;
+}
+img{
+    width: 100%;
+}
+.info{
+    margin-top: 20px;
+}
+.gamelinktag{
+    text-align: center;
+    font-size: 24px;
+    
+    background-color: #4aaaa5;
+    height: 50px;
+    position: relative; bottom: 60px;
+}
+.changecolor{
+    color: #ffffff;
+}
+@media screen and (max-width: 767px) {
+    .links{
+        width: 100%;
+        height: 50px;
+        position: relative; bottom: 0px;
+    }
+    #nametag{
+        width: 100%;
+        height: 50px;
+        margin: 0px;
+        
+    }
+    nav{
+        background-color: #ffffff;
+        height: 100px;
+    }
+    
+}

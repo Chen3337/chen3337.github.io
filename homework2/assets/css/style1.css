@@ -70,15 +70,18 @@ a{
     color: #777777;
     text-decoration: none;
 }
+/* this make the border for my information so it looks inside a box */
 .info{
     border: 1px solid #4aaaa5;
     width: 100%;
 }
+/* this makes the textarea to fill the box */
 textarea{
     width: 100%;
 }
 /* this change the page by stack up nav tags when the screen is less than 767px */
 @media screen and (max-width: 767px) {
+
     .links{
         width: 100%;
         height: 50px;
