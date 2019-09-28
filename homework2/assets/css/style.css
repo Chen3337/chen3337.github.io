@@ -41,7 +41,7 @@ h1{
     height: 650px;
     padding: 20px;
 }
-/* this the information container div */
+/* this the information class container div */
 #infoarea{
     background-color: #ffffff;
     width: 700px;
@@ -68,12 +68,13 @@ footer{
     padding: 15px;
 
 }
+/* this change the links */
 a{
     color: #777777;
     text-decoration: none;
 }
-/* 640 768 980 changes */
-@media screen and (max-width: 768px) {
+/* this change the page by stack up nav tags when the screen is less than 767px */
+@media screen and (max-width: 767px) {
     .links{
         width: 100%;
         height: 50px;
