@@ -58,7 +58,7 @@ h1{
 img{
     width: 100%;
 }
-/* footer */
+/* footer fixed to stay at bottom of page*/
 footer{
     border-top: 8px solid #4aaaa5;
     background-color: #777777;
@@ -66,7 +66,12 @@ footer{
     text-align: center;
     color: #ffffff;
     padding: 15px;
-
+    position: fixed; bottom: 0;
+    width: 100%;
+}
+/* making some space between content info and the title */
+.info{
+    margin-top: 20px;
 }
 /* this change the links */
 a{

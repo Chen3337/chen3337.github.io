@@ -55,7 +55,7 @@ h1{
     margin: auto;
 }
 
-/* footer */
+/* footer fixed to stay at bottom of page*/
 footer{
     border-top: 8px solid #4aaaa5;
     background-color: #777777;
@@ -71,13 +71,16 @@ footer{
 a{
     color: #777777;
     text-decoration: none;
+    /* make image fit the div */
 }
 img{
     width: 100%;
 }
+/* making some space between content info and the title */
 .info{
     margin-top: 20px;
 }
+/* making the link div on top of the image and resize it */
 .gamelinktag{
     text-align: center;
     font-size: 24px;
@@ -86,6 +89,7 @@ img{
     height: 50px;
     position: relative; bottom: 60px;
 }
+/* change link color */
 .changecolor{
     color: #ffffff;
 }

@@ -55,7 +55,7 @@ h1{
     margin: auto;
 }
 
-/* footer */
+/* footer fixed to stay at bottom of page*/
 footer{
     border-top: 8px solid #4aaaa5;
     background-color: #777777;
@@ -63,7 +63,8 @@ footer{
     text-align: center;
     color: #ffffff;
     padding: 15px;
-
+    position: fixed; bottom: 0;
+    width: 100%;
 }
 /* this change the links */
 a{
