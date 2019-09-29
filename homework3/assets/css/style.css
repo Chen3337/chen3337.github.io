@@ -1,0 +1,31 @@
+*{
+    text-align: center;
+}
+#backgroundDiv{
+    background-image: url("../image/backgroundimage.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    height: 1000px;
+    width: 100%;
+}
+#theContainer{
+    background-image: radial-gradient(blue, black);
+    padding: 40px;
+    
+}
+#contents{
+    background-image: linear-gradient(black, white, black);
+    padding: 40px;
+}
+#subtitle{
+    border-bottom: 2px solid black;
+}
+#passwordDiv{
+    margin: 10px;
+    border: 1px dashed red;
+    height: 100px;
+    padding: 20px;
+}
+h1{
+    color: red;
+}
