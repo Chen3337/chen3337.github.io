@@ -20,12 +20,15 @@
 #subtitle{
     border-bottom: 2px solid black;
 }
-#passwordDiv{
-    margin: 10px;
-    border: 1px dashed red;
-    height: 100px;
-    padding: 20px;
+#password{
+    width: 100%;
+    background : none;
+    margin-top: 20px;
+    padding-top: 10px;
 }
 h1{
     color: red;
+}
+#btnArea{
+    margin-top: 20px;
 }
