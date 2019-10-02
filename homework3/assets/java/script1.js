@@ -42,7 +42,7 @@ function checkNumbers(x){
 // when button click display the password
 function displayPassword(){
     document.getElementById("password").innerHTML = thisIsThePassword;
-    console.log(passwordCharacters);
+    
     
 }
 // this give out this password
@@ -52,10 +52,26 @@ function creatPassword(){
         thisIsThePassword = thisIsThePassword + passwordCharacters[randNumber];
     }
 }
-
+// starts when button is clicked
 function run(){
     thisIsThePassword = "";
     creatPassword();
     displayPassword();
 }
-run();
+
+// copy to clipbroad
+function copyPassword(){
+    // var input = document.createElement('input');
+    // input.setAttribute('value', thisIsThePassword);
+    // document.body.appendChild(input);
+    // input.select();
+    // var result = document.execCommand('copy');
+    // document.body.removeChild(input)
+    // return result;
+    
+    
+    var input = document.getElementById("password");
+    input.select();
+    var result = document.execCommand('copy');
+    return result;
+}
