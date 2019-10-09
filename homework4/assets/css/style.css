@@ -1,0 +1,20 @@
+
+#timer{
+    float: left;
+    text-align: right;
+    width: 50%;
+    padding-right: 20px;
+}
+#highscorelink{
+    padding-left: 20px;
+    width: 50%;
+    float: left;
+}
+.center{
+    text-align: center;
+    margin: auto;
+}
+#choice{
+   margin-top: 50px;
+    background-color: blue;
+}
