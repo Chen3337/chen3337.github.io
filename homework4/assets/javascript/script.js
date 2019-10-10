@@ -13,20 +13,32 @@ choiceA.id = "1";
 choiceB.id = "2";
 choiceC.id = "3";
 choiceD.id = "4";
-//  in the index page when the start button click it would remove the rules and the start button. then go to the first question
-startBtn.addEventListener("click", function(){
-    theRules.parentElement.removeChild(theRules);
-    startBtn.parentElement.removeChild(startBtn);
-    startTimer();
-    questions(question1);
-    displayButtons();
-
-});
+var onQuestion = 0;
 // which choice is clicked
 choiceBox.addEventListener("click", function (event){
     if(event.target.matches("button")){
-        
+        if(event.target.id === "thestart"){
+            theRules.parentElement.removeChild(theRules);
+            startBtn.parentElement.removeChild(startBtn);
+            startTimer();
+            questions(question0);
+            displayButtons();
+        }
+        else if(true){
+            var getAnswer = checkRightAnswer(onQuestion);
+            if (getAnswer === event.target.id){
+                theTimeLeft = theTimeLeft + 10;
+                changeQuestion();
+            }
+            else{
+                theTimeLeft = theTimeLeft - 10;
+
+            }
+            onQuestion++;
+            changeQuestion();
+        }
     }
+    
 });
 
 // this sets up the timer
@@ -65,5 +77,24 @@ function displayButtons(){
     choiceBox.appendChild(aBreak2);
     choiceBox.appendChild(choiceD);
     choiceBox.style.textAlign = "left";
+}
+// x is what question is on starting with 0 this is the right answer to questions
+function checkRightAnswer(x){
+    var answerList = ["1","4","3","2","3"];
+    return answerList[x]
+}
 
+function changeQuestion(){
+    if(onQuestion === 1){
+        questions(question1);
+    }
+    if(onQuestion === 2){
+        questions(question2);
+    }
+    if(onQuestion === 3){
+        questions(question3);
+    }
+    if(onQuestion === 4){
+        questions(question4);
+    }
 }
