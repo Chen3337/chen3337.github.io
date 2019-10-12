@@ -22,6 +22,11 @@ choiceC.id = "3";
 choiceD.id = "4";
 var onQuestion = 0;
 var maxQuestions = 5;
+var highscore ={
+
+};
+var theFinalScore = 0;
+var theName;
 // which choice is clicked
 choiceBox.addEventListener("click", function (event){
     if(event.target.matches("button")){
@@ -47,7 +52,8 @@ choiceBox.addEventListener("click", function (event){
             changeQuestion();
             }
             else{
-                choiceBox.innerHTML = "your score is " + theTimeLeft;
+                theFinalScore = theTimeLeft;
+                choiceBox.innerHTML = "your score is " + theFinalScore;
                 headerQuestion.textContent = "All Done";
                 choiceBox.appendChild(aBreak1);
                 choiceBox.appendChild(aBreak);
@@ -59,6 +65,18 @@ choiceBox.addEventListener("click", function (event){
         }
     }
 });
+
+submitScore.addEventListener("click", function(){
+    if(JSON.parse(localStorage.getItem("highscore")) === null){
+    }
+    else{
+        highscore = JSON.parse(localStorage.getItem("highscore"));
+    }
+    theName = inputScore.value;
+    highscore[theName] = theFinalScore;
+    localStorage.setItem("highscore", JSON.stringify(highscore));
+
+})
 
 
 // this sets up the timer
