@@ -1,9 +1,12 @@
 var highscore = JSON.parse(localStorage.getItem("highscore"));
 var clearBtn = document.getElementById("clearbtn");
 var homeBtn = document.getElementById("backbtn");
+var theScoreDiv = document.getElementById("score");
 
 clearBtn.addEventListener("click", function(){
-    highscore = {};
+    highscore = {
+
+    };
     localStorage.setItem("highscore", JSON.stringify(highscore));
 
 });
@@ -14,6 +17,6 @@ homeBtn.addEventListener("click", function(){
 });
 
 function addscores(){
-
+    var size = Object.keys(highscore).length;
+    theScoreDiv.textContent = size;
 };
-S
