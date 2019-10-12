@@ -3,6 +3,8 @@ var theRules = document.getElementById("gamerules");
 var startBtn = document.getElementById("thestart");
 var timerDisplay = document.getElementById("timeleft");
 var choiceBox = document.getElementById("choice");
+var messageBox = document.getElementById("message");
+messageBox.style.font = "bold";
 var howManyQuestions = 5;
 var theTimeLeft = 0;
 var choiceA = document.createElement("button");
@@ -41,17 +43,22 @@ choiceBox.addEventListener("click", function (event){
             var getAnswer = checkRightAnswer(onQuestion);
             if (getAnswer === event.target.id){
                 theTimeLeft = theTimeLeft + 10;
+                messageBox.textContent = "you are right!!";
+                messageBox.setAttribute("class", "right");
                 changeQuestion();
             }
             else if(getAnswer === "1" || getAnswer === "2" || getAnswer === "3" || getAnswer === "4"){
                 theTimeLeft = theTimeLeft - 10;
-
+                messageBox.textContent = "you are wrong";
+                messageBox.setAttribute("class", "wrong");
+                
             }
             onQuestion++;
             if(onQuestion < maxQuestions){
             changeQuestion();
             }
             else{
+                messageBox.textContent = "";
                 theFinalScore = theTimeLeft;
                 choiceBox.innerHTML = "your score is " + theFinalScore;
                 headerQuestion.textContent = "All Done";

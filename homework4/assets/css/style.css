@@ -18,3 +18,12 @@
    margin-top: 50px;
     background-color: blue;
 }
+.wrong{
+    color: red;
+    font: bolder;
+}
+.right{
+    color: green;
+    font: bolder;
+
+}
