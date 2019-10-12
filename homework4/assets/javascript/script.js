@@ -4,7 +4,7 @@ var startBtn = document.getElementById("thestart");
 var timerDisplay = document.getElementById("timeleft");
 var choiceBox = document.getElementById("choice");
 var messageBox = document.getElementById("message");
-messageBox.style.font = "bold";
+
 var howManyQuestions = 5;
 var theTimeLeft = 0;
 var choiceA = document.createElement("button");
@@ -82,6 +82,7 @@ submitScore.addEventListener("click", function(){
     theName = inputScore.value;
     highscore[theName] = theFinalScore;
     localStorage.setItem("highscore", JSON.stringify(highscore));
+    window.location.href = "highscore.html";
 
 })
 

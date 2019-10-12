@@ -1,0 +1,1 @@
+var highscore = JSON.parse(localStorage.getItem("highscore"));
