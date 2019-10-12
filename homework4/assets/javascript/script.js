@@ -65,6 +65,7 @@ choiceBox.addEventListener("click", function (event){
                 choiceBox.appendChild(aBreak1);
                 choiceBox.appendChild(aBreak);
                 choiceBox.appendChild(aBreak2);
+                inputScore.setAttribute("placeholder", "enter initial");
                 choiceBox.appendChild(inputScore);
                 choiceBox.appendChild(submitScore);
                 theTimeLeft = 0;
@@ -72,7 +73,7 @@ choiceBox.addEventListener("click", function (event){
         }
     }
 });
-
+// the submit button and store it in the  local
 submitScore.addEventListener("click", function(){
     if(JSON.parse(localStorage.getItem("highscore")) === null){
     }
@@ -127,7 +128,7 @@ function checkRightAnswer(x){
     var answerList = ["1","4","3","2","3"];
     return answerList[x]
 }
-
+// to change the question
 function changeQuestion(){
     if(onQuestion === 1){
         questions(question1);
