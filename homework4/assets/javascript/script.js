@@ -9,18 +9,26 @@ var choiceA = document.createElement("button");
 var choiceB = document.createElement("button");
 var choiceC = document.createElement("button");
 var choiceD = document.createElement("button");
+var submitScore = document.createElement("button");
+submitScore.textContent = "submit";
+var inputScore = document.createElement("input");
+var aLineBreak = document.createElement("br");
+var aBreak = document.createElement("br");
+var aBreak1 = document.createElement("br");
+var aBreak2 = document.createElement("br");
 choiceA.id = "1";
 choiceB.id = "2";
 choiceC.id = "3";
 choiceD.id = "4";
 var onQuestion = 0;
+var maxQuestions = 5;
 // which choice is clicked
 choiceBox.addEventListener("click", function (event){
     if(event.target.matches("button")){
         if(event.target.id === "thestart"){
+            startTimer();
             theRules.parentElement.removeChild(theRules);
             startBtn.parentElement.removeChild(startBtn);
-            startTimer();
             questions(question0);
             displayButtons();
         }
@@ -30,16 +38,28 @@ choiceBox.addEventListener("click", function (event){
                 theTimeLeft = theTimeLeft + 10;
                 changeQuestion();
             }
-            else{
+            else if(getAnswer === "1" || getAnswer === "2" || getAnswer === "3" || getAnswer === "4"){
                 theTimeLeft = theTimeLeft - 10;
 
             }
             onQuestion++;
+            if(onQuestion < maxQuestions){
             changeQuestion();
+            }
+            else{
+                choiceBox.innerHTML = "your score is " + theTimeLeft;
+                headerQuestion.textContent = "All Done";
+                choiceBox.appendChild(aBreak1);
+                choiceBox.appendChild(aBreak);
+                choiceBox.appendChild(aBreak2);
+                choiceBox.appendChild(inputScore);
+                choiceBox.appendChild(submitScore);
+                theTimeLeft = 0;
+            }
         }
     }
-    
 });
+
 
 // this sets up the timer
 function startTimer(){
@@ -54,6 +74,7 @@ function startTimer(){
             theTimeLeft--;
             timerDisplay.textContent = theTimeLeft;
         }
+        
     }, 1000);
 }
 // display the question
@@ -66,9 +87,6 @@ function questions(x){
 }
 // display the buttons and line up to the left
 function displayButtons(){
-    var aBreak = document.createElement("br");
-    var aBreak1 = document.createElement("br");
-    var aBreak2 = document.createElement("br");
     choiceBox.appendChild(choiceA);
     choiceBox.appendChild(aBreak);
     choiceBox.appendChild(choiceB);
