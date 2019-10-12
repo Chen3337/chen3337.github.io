@@ -4,13 +4,20 @@ var startBtn = document.getElementById("thestart");
 var timerDisplay = document.getElementById("timeleft");
 var choiceBox = document.getElementById("choice");
 var messageBox = document.getElementById("message");
-
 var howManyQuestions = 5;
 var theTimeLeft = 0;
 var choiceA = document.createElement("button");
 var choiceB = document.createElement("button");
 var choiceC = document.createElement("button");
 var choiceD = document.createElement("button");
+choiceA.id = "1";
+choiceB.id = "2";
+choiceC.id = "3";
+choiceD.id = "4";
+choiceA.className = "btn btn-primary lengthbtn";
+choiceB.className = "btn btn-primary lengthbtn";
+choiceC.className = "btn btn-primary lengthbtn";
+choiceD.className = "btn btn-primary lengthbtn";
 var submitScore = document.createElement("button");
 submitScore.textContent = "submit";
 var inputScore = document.createElement("input");
@@ -18,14 +25,9 @@ var aLineBreak = document.createElement("br");
 var aBreak = document.createElement("br");
 var aBreak1 = document.createElement("br");
 var aBreak2 = document.createElement("br");
-choiceA.id = "1";
-choiceB.id = "2";
-choiceC.id = "3";
-choiceD.id = "4";
 var onQuestion = 0;
 var maxQuestions = 5;
 var highscore ={
-
 };
 var theFinalScore = 0;
 var theName;
@@ -36,7 +38,7 @@ choiceBox.addEventListener("click", function (event){
             startTimer();
             theRules.parentElement.removeChild(theRules);
             startBtn.parentElement.removeChild(startBtn);
-            questions(question0);
+            questions();
             displayButtons();
         }
         else if(true){
@@ -45,7 +47,7 @@ choiceBox.addEventListener("click", function (event){
                 theTimeLeft = theTimeLeft + 10;
                 messageBox.textContent = "you are right!!";
                 messageBox.setAttribute("class", "right");
-                changeQuestion();
+                questions();
             }
             else if(getAnswer === "1" || getAnswer === "2" || getAnswer === "3" || getAnswer === "4"){
                 theTimeLeft = theTimeLeft - 10;
@@ -55,7 +57,7 @@ choiceBox.addEventListener("click", function (event){
             }
             onQuestion++;
             if(onQuestion < maxQuestions){
-            changeQuestion();
+            questions();
             }
             else{
                 messageBox.textContent = "";
@@ -104,13 +106,13 @@ function startTimer(){
         
     }, 1000);
 }
-// display the question
-function questions(x){
-    headerQuestion.textContent = x[0];
-    choiceA.textContent = x[1];
-    choiceB.textContent = x[2];
-    choiceC.textContent = x[3];
-    choiceD.textContent = x[4];
+// change to the question you are on
+function questions(){
+    headerQuestion.textContent = theQuestions.question[onQuestion].question;
+    choiceA.textContent = theQuestions.question[onQuestion].answers[0];
+    choiceB.textContent = theQuestions.question[onQuestion].answers[1];
+    choiceC.textContent = theQuestions.question[onQuestion].answers[2];
+    choiceD.textContent = theQuestions.question[onQuestion].answers[3];
 }
 // display the buttons and line up to the left
 function displayButtons(){
@@ -127,19 +129,4 @@ function displayButtons(){
 function checkRightAnswer(x){
     var answerList = ["1","4","3","2","3"];
     return answerList[x]
-}
-// to change the question
-function changeQuestion(){
-    if(onQuestion === 1){
-        questions(question1);
-    }
-    if(onQuestion === 2){
-        questions(question2);
-    }
-    if(onQuestion === 3){
-        questions(question3);
-    }
-    if(onQuestion === 4){
-        questions(question4);
-    }
 }
