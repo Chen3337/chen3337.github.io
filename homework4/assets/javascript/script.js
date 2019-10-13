@@ -16,6 +16,7 @@ var highscore ={
 };
 var theFinalScore = 0;
 var theName;
+var timer;
 // which choice is clicked
 choiceBox.addEventListener("click", function (event){
     if(event.target.matches("button")){
@@ -62,11 +63,11 @@ submitScore.addEventListener("click", function(){
 // this sets up the timer
 function startTimer(){
     theTimeLeft = 75;
-    var timer = setInterval(function() {
+    timer = setInterval(function() {
         if(theTimeLeft < 1){
             youAreDone();
             timerDisplay.textContent = theTimeLeft;
-            clearInterval(timer);
+            
         }
         else{
             theTimeLeft--;
@@ -105,6 +106,7 @@ function makeABreak(){
 }
 // the submit score page
 function youAreDone(){
+    clearInterval(timer);
     messageBox.textContent = "";
     theFinalScore = theTimeLeft;
     choiceBox.innerHTML = "your score is " + theFinalScore;
@@ -115,7 +117,7 @@ function youAreDone(){
     inputScore.setAttribute("placeholder", "enter initial");
     choiceBox.appendChild(inputScore);
     choiceBox.appendChild(submitScore);
-    timerDisplay.textContent = "0";
+    timerDisplay.textContent = theTimeLeft;
 }
 // making a button
 function makeABtn(id, classes){
