@@ -50,15 +50,21 @@ choiceBox.addEventListener("click", function (event){
 });
 // the submit button and store it in the  local
 submitScore.addEventListener("click", function(){
-    if(JSON.parse(localStorage.getItem("highscore")) === null){
+    theName = inputScore.value.trim();
+    if(theName === ""){
+        alert("please enter your initial");
     }
     else{
-        highscore = JSON.parse(localStorage.getItem("highscore"));
+        if(JSON.parse(localStorage.getItem("highscore")) === null){
+        }
+        else{
+            highscore = JSON.parse(localStorage.getItem("highscore"));
+        }
+        
+        highscore[theName] = theFinalScore;
+        localStorage.setItem("highscore", JSON.stringify(highscore));
+        window.location.href = "highscore.html";
     }
-    theName = inputScore.value.trim();
-    highscore[theName] = theFinalScore;
-    localStorage.setItem("highscore", JSON.stringify(highscore));
-    window.location.href = "highscore.html";
 })
 // this sets up the timer
 function startTimer(){
