@@ -54,7 +54,7 @@ submitScore.addEventListener("click", function(){
     else{
         highscore = JSON.parse(localStorage.getItem("highscore"));
     }
-    theName = inputScore.value;
+    theName = inputScore.value.trim();
     highscore[theName] = theFinalScore;
     localStorage.setItem("highscore", JSON.stringify(highscore));
     window.location.href = "highscore.html";
