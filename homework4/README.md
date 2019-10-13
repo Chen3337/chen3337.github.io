@@ -8,7 +8,8 @@ After submit it will bring you to the highscore page and your score should be th
 On highscore page there is two buttons one is "go back" this will return to the quiz, the second button is "clear the highscores" this will clear all the score data.
 
 ### sits that helped me
-this site (https://stackoverflow.com/) helps with the sorting formula and the object variable with knowing "values keys and entries".
+this site (https://stackoverflow.com/) helps with the sorting formula.
+this site (https://zellwk.com/blog/looping-through-js-objects/) helped on object variable with knowing "values keys and entries".
 and (https://www.w3schools.com/) this site helps me lot on the syntax of javascript.
 
 ### clean
