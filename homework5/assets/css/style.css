@@ -1,17 +1,28 @@
+*{
+  box-sizing: border-box;
+}
 body {
   font-family: 'Open Sans', sans-serif;
   font-size: 16px;
   line-height: 1;
 }
+div{
+  padding: 0px !important;
+  height: 80px !important;
+}
 
 textarea{
   background: transparent;
-  border: none;
   resize: none;
   color: #000000;
   border-left: 1px solid black;
+  width:100%;
   padding: 10px;
+  height: 80px;
+  position: relative; bottom: 32px;
+  
 }
+
 
 .jumbotron {
   text-align: center;
@@ -40,6 +51,7 @@ textarea{
   background-color: #ffffff;
   color: #000000;
   border-top: 1px dashed #000000;
+  text-align: right;
 }
 
 .past {
@@ -69,3 +81,5 @@ textarea{
   font-size: 20px;
   transition: all .3s ease-in-out;
 }
+
+
