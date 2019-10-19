@@ -13,18 +13,30 @@ else if(hourOfday === 12){
 }
 var theIDs = [9,10,11,12,13,14,15,16,17];
 var thestorage = {
-    theHoursText : [{
-        9 : ""},
-        {10 : ""},
-        {11 : ""},
-        {12 : ""},
-        {13 : ""},
-        {14 : ""},
-        {15 : ""},
-        {16 : ""},
-        {17 : ""
-        }]
+    theHoursText : [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+        ]
 }
+if(JSON.parse(localStorage.getItem("thestorage")) === null){
+}
+else{
+    thestorage = JSON.parse(localStorage.getItem("thestorage"));
+    for(i=0; i < thestorage.theHoursText.length;i++){
+        var thisNumber = i + 9;
+        var theTextBox = $("#" + thisNumber).children();
+        
+        theTextBox.text(thestorage.theHoursText[i]);
+    }
+}
+
 colorTheHours();
 function colorTheHours(){
     for(i=0; i < theIDs.length; i++){
@@ -43,8 +55,7 @@ $(".saveBtn").on("click", function(event){
     event.stopPropagation();
     var theID = event.target.parentElement.children[1].id;
     var theTextAreaValue = $("#" + theID).children().val();
-    console.log(theTextAreaValue);
-    
-
+    thestorage.theHoursText[(theID - 9)] = theTextAreaValue;
+    localStorage.setItem("thestorage", JSON.stringify(thestorage));
 });
 
