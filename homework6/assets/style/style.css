@@ -1,0 +1,24 @@
+*{
+    box-sizing: border-box;
+}
+/* the header */
+header{
+    width: 100%;
+    text-align: center;
+    background-color: blue;   
+    padding: 10px;
+}
+
+#searching{
+    background-color: #CFACAC;
+}
+
+#info{
+    background-color: #F7C7C7;
+}
+#todayinfo{
+    height: 350px;
+}
+#forecastweather{
+    height: 300px;
+}

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>The Weather</title>
+    <link rel="stylesheet" href="assets/style/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+</head>
+<body>
+    <!-- the header or the title -->
+    <header>
+        <h1>Weather Dashbroad</h1>
+    </header>
+    <div class="container">
+        <div class="row">
+            <!-- this is the searching part of the page -->
+            <div class="col-md-3" id="searching">
+                <h3>Search for a city:</h3>
+                <input type="text" id="theCityInput">
+                <button id="searchBtn">search</button>
+            </div>
+            <!-- this is the place to display the information -->
+            <div class="col-md-9" id="info">
+                <!-- this is the city and todays weather -->
+                <div class="row" id="todayinfo">
+                    <div class="col-md-12" id="todaydisplay">
+
+                    </div>
+                </div>
+                <!-- this is the forecast display -->
+                <div class="row" id="forecastweather">
+                    <div class="col-md-12" id="forecastdisplay">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="assets/javascript/script.js"></script>
+</html>
