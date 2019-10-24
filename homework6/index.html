@@ -55,7 +55,8 @@ $("#searchBtn").on("click", function(){
 
 function addCity(cityName){
     $("#theCityDisplay").empty();
-    theCityNameArray.push(cityName);
+    theCityNameArray.indexOf(cityName.toLowerCase()) === -1 ? theCityNameArray.push(cityName) : console.log("This item already exists");
+    // theCityNameArray.push(cityName);
     localStorage.setItem("theCityNameArray", theCityNameArray);
     for(i=0; i < theCityNameArray.length; i++){
         var newDiv = $("<div>");
