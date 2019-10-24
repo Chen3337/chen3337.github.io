@@ -18,7 +18,24 @@ header{
 }
 #todayinfo{
     height: 350px;
+    padding: 20px;
 }
 #forecastweather{
     height: 300px;
+}
+body{
+    background-image: radial-gradient(black,white);
+}
+#theCityDisplay{
+    width: 100%;;
+}
+.cityNameTag{
+    background-color: white;
+    text-align: center;
+    margin: 10px;
+    height: 25px;
+}
+#todaydisplay{
+    background-color: white;
+    padding-top: 10px;
 }

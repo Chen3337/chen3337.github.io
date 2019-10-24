@@ -21,13 +21,18 @@
                 <h3>Search for a city:</h3>
                 <input type="text" id="theCityInput">
                 <button id="searchBtn">search</button>
+                <div id="theCityDisplay"></div>
             </div>
             <!-- this is the place to display the information -->
             <div class="col-md-9" id="info">
                 <!-- this is the city and todays weather -->
                 <div class="row" id="todayinfo">
                     <div class="col-md-12" id="todaydisplay">
-
+                        <h3 id="cityname">City??  <span id="todaydate">today</span></h3>
+                        <p>Temperature: <span id="temp"></span></p>
+                        <p>Humidity: <span id="humidity"></span></p>
+                        <p>Wind Speed: <span id="wind"></span></p>
+                        <p>UV Index: <span id="UV"></span></p>
                     </div>
                 </div>
                 <!-- this is the forecast display -->
@@ -41,4 +46,53 @@
     </div>
 </body>
 <script src="assets/javascript/script.js"></script>
+<script>
+var theCityNameArray = [];
+$("#searchBtn").on("click", function(){
+    var theCityName = $("#theCityInput").val();
+    theAjaxCall(theCityName);
+});
+
+function addCity(cityName){
+    $("#theCityDisplay").empty();
+    theCityNameArray.push(cityName);
+    localStorage.setItem("theCityNameArray", theCityNameArray);
+    for(i=0; i < theCityNameArray.length; i++){
+        var newDiv = $("<div>");
+        newDiv.text(theCityNameArray[i]);
+        newDiv.addClass("cityNameTag");
+        $("#theCityDisplay").append(newDiv);
+    }
+}
+function theAjaxCall(cityName){
+    var city = cityName.replace( " ", "%20");
+    var theWeatherUrl = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=2c9429a7f45eac540b72e1c276819bfd";
+    $.ajax({
+        url: theWeatherUrl,
+        method: "GET"
+    }).then(function(response) {
+        changeTodayInformation(response);
+        addCity(cityName);
+    });
+    
+}
+function changeTodayInformation(response){
+    var degreeKelvin = response.main.temp;
+    var degreeF = degreeKelvin * (9/5) - 459.67;
+    $("#cityname").text(response.name);
+    $("#temp").text(degreeF.toFixed(1) + "F");
+    $("#humidity").text(response.main.humidity);
+    $("#wind").text(response.wind.speed);
+    var lat = response.coord.lat;
+    var lon = response.coord.lon;
+    var UVIndexURL = "http://api.openweathermap.org/data/2.5/uvi?appid=2c9429a7f45eac540b72e1c276819bfd&lat=" + lat + "&lon=" + lon;
+    $.ajax({
+        url : UVIndexURL,
+        method: "GET"
+    }).then(function(response){
+        $("#UV").text(response.value);
+    })
+}
+
+</script>
 </html>
