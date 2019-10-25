@@ -39,7 +39,36 @@
                 <div class="row" id="forecastweather">
                     <div class="col-md-12" id="forecastdisplay">
                         <h2>5-Day Forecast:</h2>
-
+                        <section>
+                            <p></p>
+                            <img src="" alt="weather Icon">
+                            <p></p>
+                            <p></p>
+                        </section>
+                        <section>
+                            <p></p>
+                            <img src="" alt="weather Icon">
+                            <p></p>
+                            <p></p>
+                        </section>
+                        <section>
+                            <p></p>
+                            <img src="" alt="weather Icon">
+                            <p></p>
+                            <p></p>
+                        </section>
+                        <section>
+                            <p></p>
+                            <img src="" alt="weather Icon">
+                            <p></p>
+                            <p></p>
+                        </section>
+                        <section>
+                            <p></p>
+                            <img src="" alt="weather Icon">
+                            <p></p>
+                            <p></p>
+                        </section>
                     </div>
                 </div>
             </div>
@@ -102,6 +131,7 @@ function changeTodayInformation(response){
     }).then(function(response){
         $("#UV").text(response.value);
     });
+    fiveDayForecast(lat,lon);
     
     // have to be paid accounts only omg
     // var forecastFiveDayURL = "api.openweathermap.org/data/2.5/forecast/daily?lat=" + lat + "&lon=" + lon + "&cnt=5&appid=2c9429a7f45eac540b72e1c276819bfd";
@@ -111,6 +141,16 @@ function changeTodayInformation(response){
     // }).then(function(response){
     //     console.log(response);
     // });
+}
+function fiveDayForecast(lat,lon){
+    var theForecastURL = "https://cors-anywhere.herokuapp.com/https://api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + lon + "&appid=2c9429a7f45eac540b72e1c276819bfd";
+    $.ajax({
+        url : theForecastURL,
+        method : "GET"
+    }).then(function(response){
+        console.log(response);
+    });
+
 }
 </script>
 </html>
