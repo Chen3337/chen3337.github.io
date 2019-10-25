@@ -41,31 +41,31 @@
                         <h2>5-Day Forecast:</h2>
                         <section>
                             <p id="forecastDate1"></p>
-                            <img src="" alt="weather Icon">
+                            <img id="fImg1" src="" alt="weather Icon">
                             <p id="temp1"></p>
                             <p id="fHunmidity1"></p>
                         </section>
                         <section>
                             <p id="forecastDate2"></p>
-                            <img src="" alt="weather Icon">
+                            <img id="fImg2" src="" alt="weather Icon">
                             <p id="temp2"></p>
                             <p id="fHunmidity2"></p>
                         </section>
                         <section>
                             <p id="forecastDate3"></p>
-                            <img src="" alt="weather Icon">
+                            <img id="fImg3" src="" alt="weather Icon">
                             <p id="temp3"></p>
                             <p id="fHunmidity3"></p>
                         </section>
                         <section>
                             <p id="forecastDate4"></p>
-                            <img src="" alt="weather Icon">
+                            <img id="fImg4" src="" alt="weather Icon">
                             <p id="temp4" ></p>
                             <p id="fHunmidity4"></p>
                         </section>
                         <section>
                             <p id="forecastDate5"></p>
-                            <img src="" alt="weather Icon">
+                            <img id="fImg5" src="" alt="weather Icon">
                             <p id="temp5"></p>
                             <p id="fHunmidity5"></p>
                         </section>
@@ -116,7 +116,6 @@ function changeTodayInformation(response){
     var degreeF = degreeKelvin * (9/5) - 459.67;
     $("#cityname").text(response.name);
     $("#todayIcon").attr("src","http://openweathermap.org/img/w/" + response.weather[0].icon + ".png");
-    $("#todayIcon").css("visibility", "visible");
     $("#todaydate").text(moment().format('L'));
     $("#temp").text(degreeF.toFixed(1) + "F");
     $("#humidity").text(response.main.humidity + "%");
@@ -209,6 +208,12 @@ function forecastCalculations(response){
     $("#temp3").text("temp: " + dayThreeTemp.toFixed(2) + "F");
     $("#temp4").text("temp: " + dayFourTemp.toFixed(2) + "F");
     $("#temp5").text("temp: " + dayFiveTemp.toFixed(2) + "F");
+    $("#fImg1").attr("src","http://openweathermap.org/img/w/" + response.list[4].weather[0].icon + ".png");
+    $("#fImg2").attr("src","http://openweathermap.org/img/w/" + response.list[12].weather[0].icon + ".png");
+    $("#fImg3").attr("src","http://openweathermap.org/img/w/" + response.list[20].weather[0].icon + ".png");
+    $("#fImg4").attr("src","http://openweathermap.org/img/w/" + response.list[28].weather[0].icon + ".png");
+    $("#fImg5").attr("src","http://openweathermap.org/img/w/" + response.list[36].weather[0].icon + ".png");
+    $("img").css("visibility", "visible");
 }
 </script>
 </html>
