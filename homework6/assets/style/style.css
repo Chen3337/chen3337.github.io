@@ -39,3 +39,6 @@ body{
     background-color: white;
     padding-top: 10px;
 }
+img{
+    visibility: hidden;
+}

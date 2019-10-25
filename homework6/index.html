@@ -28,7 +28,7 @@
                 <!-- this is the city and todays weather -->
                 <div class="row" id="todayinfo">
                     <div class="col-md-12" id="todaydisplay">
-                        <h3 id="cityname">City??  <span id="todaydate">today</span></h3>
+                        <h3><span id="cityname">city</span> <span id="todaydate"></span><img id="todayIcon" src="" alt="picture of sky in this weather"></h3> 
                         <p>Temperature: <span id="temp"></span></p>
                         <p>Humidity: <span id="humidity"></span></p>
                         <p>Wind Speed: <span id="wind"></span></p>
@@ -38,13 +38,15 @@
                 <!-- this is the forecast display -->
                 <div class="row" id="forecastweather">
                     <div class="col-md-12" id="forecastdisplay">
-                        
+                        <h2>5-Day Forecast:</h2>
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 <script src="assets/javascript/script.js"></script>
 <script>
 var theCityNameArray = [];
@@ -55,7 +57,7 @@ $("#searchBtn").on("click", function(){
 
 function addCity(cityName){
     $("#theCityDisplay").empty();
-    theCityNameArray.indexOf(cityName.toLowerCase()) === -1 ? theCityNameArray.push(cityName) : console.log("This item already exists");
+    theCityNameArray.indexOf(cityName.toLowerCase()) === -1 ? theCityNameArray.push(cityName) : console.log("This city already exists");
     // theCityNameArray.push(cityName);
     localStorage.setItem("theCityNameArray", theCityNameArray);
     for(i=0; i < theCityNameArray.length; i++){
@@ -74,13 +76,20 @@ function theAjaxCall(cityName){
     }).then(function(response) {
         changeTodayInformation(response);
         addCity(cityName);
+        // forecastFiveDays(cityName);
+    }).fail(function(){
+        alert("not a city name");
     });
+
     
 }
 function changeTodayInformation(response){
     var degreeKelvin = response.main.temp;
     var degreeF = degreeKelvin * (9/5) - 459.67;
     $("#cityname").text(response.name);
+    $("#todayIcon").attr("src","http://openweathermap.org/img/w/" + response.weather[0].icon + ".png");
+    $("#todayIcon").css("visibility", "visible");
+    $("#todaydate").text(moment().format('L'));
     $("#temp").text(degreeF.toFixed(1) + "F");
     $("#humidity").text(response.main.humidity);
     $("#wind").text(response.wind.speed);
@@ -92,8 +101,16 @@ function changeTodayInformation(response){
         method: "GET"
     }).then(function(response){
         $("#UV").text(response.value);
-    })
+    });
+    
+    // have to be paid accounts only omg
+    // var forecastFiveDayURL = "api.openweathermap.org/data/2.5/forecast/daily?lat=" + lat + "&lon=" + lon + "&cnt=5&appid=2c9429a7f45eac540b72e1c276819bfd";
+    // $.ajax({
+    //     url : forecastFiveDayURL,
+    //     method : "GET"
+    // }).then(function(response){
+    //     console.log(response);
+    // });
 }
-
 </script>
 </html>
