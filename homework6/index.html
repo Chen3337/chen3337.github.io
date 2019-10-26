@@ -88,13 +88,19 @@ if(theStoreage === null){
 }
 else{
     theCityNameArray = theStoreage;
-
     addCity();
 }
 
 $("#searchBtn").on("click", function(){
     var theCityName = $("#theCityInput").val();
-    theAjaxCall(theCityName);
+    theAjaxCall(theCityName, true);
+});
+
+$(".cityNameTag").on("click", function(){
+    var cityName1 = this.getAttribute("data-name");
+    
+    theAjaxCall(cityName1, false);
+    
 });
 
 function addCity(cityName){
@@ -110,11 +116,11 @@ function addCity(cityName){
         var newDiv = $("<div>");
         newDiv.text(theCityNameArray.name[i]);
         newDiv.addClass("cityNameTag");
-        newDiv.data("name", theCityNameArray.name[i]);
+        newDiv.attr("data-name", theCityNameArray.name[i]);
         $("#theCityDisplay").append(newDiv);
     }
 }
-function theAjaxCall(cityName){
+function theAjaxCall(cityName, x){
     var city = cityName.replace( " ", "%20");
     var theWeatherUrl = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=2c9429a7f45eac540b72e1c276819bfd";
     $.ajax({
@@ -122,7 +128,9 @@ function theAjaxCall(cityName){
         method: "GET"
     }).then(function(response) {
         changeTodayInformation(response);
+        if(x){
         addCity(cityName);
+        }
     }).fail(function(){
         alert("not a city name");
     });
@@ -161,7 +169,6 @@ function fiveDayForecast(lat,lon){
         url : theForecastURL,
         method : "GET"
     }).then(function(response){
-        console.log(response);
         forecastCalculations(response);
     });
 

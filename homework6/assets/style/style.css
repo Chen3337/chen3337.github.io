@@ -35,6 +35,9 @@ body{
     margin: 10px;
     height: 25px;
 }
+.cityNameTag:hover{
+    cursor: pointer;
+}
 #todaydisplay{
     background-color: white;
     padding-top: 10px;
