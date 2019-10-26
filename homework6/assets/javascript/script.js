@@ -1,7 +1,6 @@
 var theCityNameArray = {
     name : []
 };
-
 var theStoreage = JSON.parse(localStorage.getItem("theCityNameArray"));
 if(theStoreage === null){
 
@@ -10,26 +9,23 @@ else{
     theCityNameArray = theStoreage;
     addCity();
 }
-
 $("#searchBtn").on("click", function(){
     var theCityName = $("#theCityInput").val();
     theAjaxCall(theCityName, true);
 });
-
-$(".cityNameTag").on("click", function(){
-    var cityName1 = this.getAttribute("data-name");
-    
+$("#theCityDisplay").on("click", function(event){
+    var cityName1 = event.target.getAttribute("data-name");
     theAjaxCall(cityName1, false);
-    
 });
-
 function addCity(cityName){
     if(cityName === undefined){
-
     }
     else{
         $("#theCityDisplay").empty();
-        theCityNameArray.name.indexOf(cityName.toLowerCase()) === -1 ? theCityNameArray.name.push(cityName) : console.log("This city already exists");
+         var checkArray = theCityNameArray.name.indexOf(cityName.toLowerCase())
+         if(checkArray === -1){
+             theCityNameArray.name.push(cityName);
+         }
         localStorage.setItem("theCityNameArray", JSON.stringify(theCityNameArray));
     }
     for(i=0; i < theCityNameArray.name.length; i++){
@@ -55,11 +51,8 @@ function theAjaxCall(cityName, x){
         $("#message").html("ERROR NOT A CITY NAME");
         setTimeout(function () {
             $("#message").html("");
-        }, 3000);
-        
+        }, 3000); 
     });
-
-    
 }
 function changeTodayInformation(response){
     var degreeKelvin = response.main.temp;
@@ -86,8 +79,6 @@ function fiveDayForecast(lat,lon){
     for(i=1; i < 6; i++){
         $("#forecastDate" + i).text(moment().add(i, 'days').format('L'));
     };
-    
-    
     var theForecastURL = "https://cors-anywhere.herokuapp.com/https://api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + lon + "&appid=2c9429a7f45eac540b72e1c276819bfd";
     $.ajax({
         url : theForecastURL,
@@ -95,7 +86,6 @@ function fiveDayForecast(lat,lon){
     }).then(function(response){
         forecastCalculations(response);
     });
-
 }
 // the other one is not free so this one is used
 function forecastCalculations(response){
