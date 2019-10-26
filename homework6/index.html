@@ -88,7 +88,7 @@ if(theStoreage === null){
 }
 else{
     theCityNameArray = theStoreage;
-    console.log(theCityNameArray);
+
     addCity();
 }
 
@@ -110,6 +110,7 @@ function addCity(cityName){
         var newDiv = $("<div>");
         newDiv.text(theCityNameArray.name[i]);
         newDiv.addClass("cityNameTag");
+        newDiv.data("name", theCityNameArray.name[i]);
         $("#theCityDisplay").append(newDiv);
     }
 }
@@ -148,15 +149,6 @@ function changeTodayInformation(response){
         $("#UV").addClass("UVColor");
     });
     fiveDayForecast(lat,lon);
-    
-    // have to be paid accounts only omg
-    // var forecastFiveDayURL = "api.openweathermap.org/data/2.5/forecast/daily?lat=" + lat + "&lon=" + lon + "&cnt=5&appid=2c9429a7f45eac540b72e1c276819bfd";
-    // $.ajax({
-    //     url : forecastFiveDayURL,
-    //     method : "GET"
-    // }).then(function(response){
-    //     console.log(response);
-    // });
 }
 function fiveDayForecast(lat,lon){
     for(i=1; i < 6; i++){
