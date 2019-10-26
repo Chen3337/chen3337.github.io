@@ -50,3 +50,8 @@ section{
     margin: 10px;
     color: white;
 }
+.UVColor{
+    background-color: red;
+    padding: 5px;
+    color: white;
+}

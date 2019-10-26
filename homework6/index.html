@@ -78,20 +78,37 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 <script src="assets/javascript/script.js"></script>
 <script>
-var theCityNameArray = [];
+var theCityNameArray = {
+    name : []
+};
+
+var theStoreage = JSON.parse(localStorage.getItem("theCityNameArray"));
+if(theStoreage === null){
+
+}
+else{
+    theCityNameArray = theStoreage;
+    console.log(theCityNameArray);
+    addCity();
+}
+
 $("#searchBtn").on("click", function(){
     var theCityName = $("#theCityInput").val();
     theAjaxCall(theCityName);
 });
 
 function addCity(cityName){
-    $("#theCityDisplay").empty();
-    theCityNameArray.indexOf(cityName.toLowerCase()) === -1 ? theCityNameArray.push(cityName) : console.log("This city already exists");
-    // theCityNameArray.push(cityName);
-    localStorage.setItem("theCityNameArray", theCityNameArray);
-    for(i=0; i < theCityNameArray.length; i++){
+    if(cityName === undefined){
+
+    }
+    else{
+        $("#theCityDisplay").empty();
+        theCityNameArray.name.indexOf(cityName.toLowerCase()) === -1 ? theCityNameArray.name.push(cityName) : console.log("This city already exists");
+        localStorage.setItem("theCityNameArray", JSON.stringify(theCityNameArray));
+    }
+    for(i=0; i < theCityNameArray.name.length; i++){
         var newDiv = $("<div>");
-        newDiv.text(theCityNameArray[i]);
+        newDiv.text(theCityNameArray.name[i]);
         newDiv.addClass("cityNameTag");
         $("#theCityDisplay").append(newDiv);
     }
@@ -128,6 +145,7 @@ function changeTodayInformation(response){
         method: "GET"
     }).then(function(response){
         $("#UV").text(response.value);
+        $("#UV").addClass("UVColor");
     });
     fiveDayForecast(lat,lon);
     
