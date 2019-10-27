@@ -39,6 +39,7 @@ function addCity(cityName){
 function theAjaxCall(cityName, x){
     var city = cityName.replace( " ", "%20");
     var theWeatherUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=2c9429a7f45eac540b72e1c276819bfd";
+    console.log(theWeatherUrl);
     $.ajax({
         url: theWeatherUrl,
         method: "GET"
