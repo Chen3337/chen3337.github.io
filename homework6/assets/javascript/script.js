@@ -31,7 +31,7 @@ function addCity(cityName){
     for(i=0; i < theCityNameArray.name.length; i++){
         var newDiv = $("<div>");
         newDiv.text(theCityNameArray.name[i]);
-        newDiv.addClass("cityNameTag");
+        newDiv.addClass("cityNameTag btn btn-primary btn-block");
         newDiv.attr("data-name", theCityNameArray.name[i]);
         $("#theCityDisplay").append(newDiv);
     }

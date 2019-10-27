@@ -7,9 +7,10 @@
     <title>The Weather</title>
     <link rel="stylesheet" href="assets/style/style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="http://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 </head>
-<body>
+<body background="assets/image/sky.jpg">
     <!-- the header or the title -->
     <header>
         <h1>Weather Dashbroad</h1>
@@ -20,8 +21,9 @@
             <div class="col-md-3" id="searching">
                 <h3>Search for a city:</h3>
                 <input type="text" id="theCityInput">
-                <button id="searchBtn">search</button>
+                <button class="btn btn-success" id="searchBtn"><span class="fa fa-search"></span></button>
                 <p id="message"></p>
+                <br>
                 <div id="theCityDisplay"></div>
             </div>
             <!-- this is the place to display the information -->
@@ -78,7 +80,4 @@
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 <script src="assets/javascript/script.js"></script>
-<script>
-
-</script>
 </html>
