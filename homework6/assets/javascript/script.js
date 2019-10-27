@@ -38,7 +38,7 @@ function addCity(cityName){
 }
 function theAjaxCall(cityName, x){
     var city = cityName.replace( " ", "%20");
-    var theWeatherUrl = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=2c9429a7f45eac540b72e1c276819bfd";
+    var theWeatherUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=2c9429a7f45eac540b72e1c276819bfd";
     $.ajax({
         url: theWeatherUrl,
         method: "GET"
@@ -58,14 +58,14 @@ function changeTodayInformation(response){
     var degreeKelvin = response.main.temp;
     var degreeF = degreeKelvin * (9/5) - 459.67;
     $("#cityname").text(response.name);
-    $("#todayIcon").attr("src","http://openweathermap.org/img/w/" + response.weather[0].icon + ".png");
+    $("#todayIcon").attr("src","https://openweathermap.org/img/w/" + response.weather[0].icon + ".png");
     $("#todaydate").text(moment().format('L'));
     $("#temp").text(degreeF.toFixed(1) + "F");
     $("#humidity").text(response.main.humidity + "%");
     $("#wind").text(response.wind.speed + "MPH");
     var lat = response.coord.lat;
     var lon = response.coord.lon;
-    var UVIndexURL = "http://api.openweathermap.org/data/2.5/uvi?appid=2c9429a7f45eac540b72e1c276819bfd&lat=" + lat + "&lon=" + lon;
+    var UVIndexURL = "https://api.openweathermap.org/data/2.5/uvi?appid=2c9429a7f45eac540b72e1c276819bfd&lat=" + lat + "&lon=" + lon;
     $.ajax({
         url : UVIndexURL,
         method: "GET"
