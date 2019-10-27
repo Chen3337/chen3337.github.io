@@ -9,10 +9,19 @@ else{
     theCityNameArray = theStoreage;
     addCity();
 }
-$("#searchBtn").on("click", function(){
+$("#searchBtn").on("click", function(event){
+    event.preventDefault();
     var theCityName = $("#theCityInput").val();
     theAjaxCall(theCityName, true);
 });
+
+$("#theCityInput").on("keyup", function(event) {
+    if (event.keyCode === 13) {
+     event.preventDefault();
+     $("#searchBtn").click();
+    }
+});
+
 $("#theCityDisplay").on("click", function(event){
     var cityName1 = event.target.getAttribute("data-name");
     theAjaxCall(cityName1, false);
@@ -39,7 +48,6 @@ function addCity(cityName){
 function theAjaxCall(cityName, x){
     var city = cityName.replace( " ", "%20");
     var theWeatherUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=2c9429a7f45eac540b72e1c276819bfd";
-    console.log(theWeatherUrl);
     $.ajax({
         url: theWeatherUrl,
         method: "GET"
