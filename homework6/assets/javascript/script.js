@@ -148,11 +148,11 @@ function forecastCalculations(response){
     $("#temp3").text("temp: " + dayThreeTemp.toFixed(2) + "F");
     $("#temp4").text("temp: " + dayFourTemp.toFixed(2) + "F");
     $("#temp5").text("temp: " + dayFiveTemp.toFixed(2) + "F");
-    $("#fImg1").attr("src","http://openweathermap.org/img/w/" + response.list[4].weather[0].icon + ".png");
-    $("#fImg2").attr("src","http://openweathermap.org/img/w/" + response.list[12].weather[0].icon + ".png");
-    $("#fImg3").attr("src","http://openweathermap.org/img/w/" + response.list[20].weather[0].icon + ".png");
-    $("#fImg4").attr("src","http://openweathermap.org/img/w/" + response.list[28].weather[0].icon + ".png");
-    $("#fImg5").attr("src","http://openweathermap.org/img/w/" + response.list[36].weather[0].icon + ".png");
+    $("#fImg1").attr("src","https://openweathermap.org/img/w/" + response.list[4].weather[0].icon + ".png");
+    $("#fImg2").attr("src","https://openweathermap.org/img/w/" + response.list[12].weather[0].icon + ".png");
+    $("#fImg3").attr("src","https://openweathermap.org/img/w/" + response.list[20].weather[0].icon + ".png");
+    $("#fImg4").attr("src","https://openweathermap.org/img/w/" + response.list[28].weather[0].icon + ".png");
+    $("#fImg5").attr("src","https://openweathermap.org/img/w/" + response.list[36].weather[0].icon + ".png");
     $("img").css("visibility", "visible");
 }
 if (navigator.geolocation) {
