@@ -155,3 +155,18 @@ function forecastCalculations(response){
     $("#fImg5").attr("src","http://openweathermap.org/img/w/" + response.list[36].weather[0].icon + ".png");
     $("img").css("visibility", "visible");
 }
+if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(getYourLocationWeather);
+  }
+function getYourLocationWeather(yourlocation){
+    var lon = yourlocation.coords.longitude;
+    var lat = yourlocation.coords.latitude;
+    var weatherurl = "https://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon + "&appid=2c9429a7f45eac540b72e1c276819bfd";
+    $.ajax({
+        url : weatherurl,
+        method : "GET"
+    }).then(function(response){
+        changeTodayInformation(response);
+    });
+}
+
