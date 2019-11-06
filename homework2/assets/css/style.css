@@ -34,20 +34,16 @@ nav{
 h1{
     font-size: 25px;
 }
-/* the background div */
-#allbodyarea{
-    width: 100%;
+
+body{
     background-image: url("../image/backgroundimg.png");
-    height: 650px;
-    padding: 20px;
 }
 /* this the information class container div */
 #infoarea{
     background-color: #ffffff;
-    width: 700px;
-    float: left;
     padding: 30px;
-    margin: 10px;
+    margin: auto;
+    margin-top: 10px;
 }
 /* this is the title in the content */
 #contenttitle{
