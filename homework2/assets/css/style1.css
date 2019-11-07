@@ -41,7 +41,6 @@ body{
 /* this the information class container div */
 #infoarea{
     background-color: #ffffff;
-    width: 700px;
 }
 /* this is the title in the content */
 #contenttitle{
@@ -96,6 +95,9 @@ textarea{
     nav{
         background-color: #ffffff;
         height: 100px;
+    }
+    body{
+        padding: 0px 20px 0px 20px;
     }
     
 }

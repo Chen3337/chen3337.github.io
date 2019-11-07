@@ -14,40 +14,34 @@ nav{
 }
 /* the links to other html page div */
 .links{
-    float: right;
+    float: left;
     text-align: center;
     height: 60px;
-    
+    width: 50%;
     padding: 20px;
-    position: relative; bottom: 60px;
 }
 /* the name div */
 #nametag{
+    float: left;
     padding-top: 20px;
     text-align: center;
     height: 60px;
     width: 40%;
     background-color: #4aaaa5;
-    margin-left: 20px;
+    margin-left: 10%;
 }
 /* change the name font size */
 h1{
     font-size: 25px;
 }
-/* the background div */
-#allbodyarea{
-    width: 100%;
+/* the background */
+body{
     background-image: url("../image/backgroundimg.png");
-    height: 1000px;
-    padding: 20px;
 }
 /* this the information class container div */
 #infoarea{
     background-color: #ffffff;
-    width: 700px;
-    float: left;
     padding: 30px;
-    margin: 10px;
 }
 /* this is the title in the content */
 #contenttitle{
@@ -84,7 +78,6 @@ img{
 .gamelinktag{
     text-align: center;
     font-size: 24px;
-    
     background-color: #4aaaa5;
     height: 50px;
     position: relative; bottom: 60px;
@@ -97,17 +90,17 @@ img{
     .links{
         width: 100%;
         height: 50px;
-        position: relative; bottom: 0px;
     }
     #nametag{
         width: 100%;
         height: 50px;
         margin: 0px;
-        
     }
     nav{
         background-color: #ffffff;
         height: 100px;
     }
-    
+    body{
+        padding: 0px 20px 0px 20px;
+    }
 }

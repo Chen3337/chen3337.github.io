@@ -42,8 +42,6 @@ body{
 #infoarea{
     background-color: #ffffff;
     padding: 30px;
-    margin: auto;
-    margin-top: 10px;
 }
 /* this is the title in the content */
 #contenttitle{
@@ -88,6 +86,9 @@ a{
     nav{
         background-color: #ffffff;
         height: 100px;
+    }
+    body{
+        padding: 0px 20px 0px 20px;
     }
     
 }
